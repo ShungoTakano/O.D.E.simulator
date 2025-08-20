@@ -58,7 +58,7 @@ p {
 }
 
 .chart-container {
-    position: relative; /* ツールチップやボタンの位置決めの基準とする */
+    position: relative;
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
@@ -67,7 +67,6 @@ p {
     border-radius: 8px;
 }
 
-/* ★変更: ズームリセットボタンのスタイルを追加 */
 #reset-zoom-btn {
     position: absolute;
     top: 15px;
@@ -86,16 +85,15 @@ p {
     background-color: #e0e0e0;
 }
 
-/* カスタムツールチップのスタイル */
 .tooltip {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.75);
     color: white;
     padding: 10px;
     border-radius: 5px;
-    pointer-events: none; /* マウスイベントを透過させる */
+    pointer-events: none;
     font-size: 12px;
-    white-space: pre; /* 改行とスペースをそのまま表示 */
-    transform: translate(10px, -50%); /* カーソルの少し横に表示 */
+    white-space: pre;
+    transform: translate(10px, -50%);
     z-index: 10;
 }
