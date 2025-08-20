@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         rk2: document.getElementById('show-rk2'),
         rk4: document.getElementById('show-rk4'),
     };
-    const resetZoomBtn = document.getElementById('reset-zoom-btn'); // ★変更: ボタン要素を取得
+    const resetZoomBtn = document.getElementById('reset-zoom-btn');
 
     // --- 物理モデルの設定 ---
     const models = {
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let t = 0;
         let y = [...currentModel.initialValue];
         while (t <= currentModel.t_max) {
-            points.push({ x: t, y: y[0] }); // 位置(x)または速度(v)をプロット
+            points.push({ x: t, y: y[0] });
             y = solverFunc(t, y, h);
             t = t + h;
         }
@@ -133,27 +133,26 @@ document.addEventListener('DOMContentLoaded', () => {
         plugins: {
             legend: { display: false },
             tooltip: {
-                enabled: false, // 標準ツールチップを無効化
+                enabled: false,
             },
-            // ★変更: ズームプラグインの設定を追加
             zoom: {
                 pan: {
-                    enabled: true, // パン(ドラッグでの移動)を有効化
-                    mode: 'xy',    // X軸、Y軸ともにパン可能
-                    threshold: 5,  // 5pxドラッグしたらパン開始
+                    enabled: true,
+                    mode: 'xy',
+                    threshold: 5,
                 },
                 zoom: {
                     wheel: {
-                        enabled: true, // マウスホイールでのズームを有効化
+                        enabled: true,
                     },
                     pinch: {
-                        enabled: true // ピンチ操作でのズームを有効化 (モバイル向け)
+                        enabled: true
                     },
                     drag: {
-                        enabled: true, // ドラッグでの範囲選択ズームを有効化
-                        backgroundColor: 'rgba(52, 152, 219, 0.2)' // 選択範囲の背景色
+                        enabled: true,
+                        backgroundColor: 'rgba(52, 152, 219, 0.2)'
                     },
-                    mode: 'xy', // X軸、Y軸ともにズーム可能
+                    mode: 'xy',
                 }
             }
         },
@@ -238,18 +237,16 @@ document.addEventListener('DOMContentLoaded', () => {
         customTooltip.style.display = 'none';
     });
 
-    // ★変更: グラフ更新とズームリセットを分離
     formulaTypeSelect.addEventListener('change', () => {
         updateChart();
-        chart.resetZoom(); // グラフの種類が変わったらズームをリセット
+        chart.resetZoom();
     });
     stepSlider.addEventListener('input', updateChart);
     Object.values(checkboxes).forEach(cb => cb.addEventListener('change', updateChart));
 
-    // ★変更: リセットボタンのクリックイベントを追加
     resetZoomBtn.addEventListener('click', () => {
         chart.resetZoom();
     });
 
-    updateChart(); // 初期描画
+    updateChart();
 });
