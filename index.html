@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常微分方程式 数値解法シミュレータ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>常微分方程式 数値解法シミュレータ</h1>
+
+    <div class="controls">
+        <div class="control-group">
+            <label for="formula-type">公式タイプ:</label>
+            <select id="formula-type">
+                <option value="air-resistance" selected>空気抵抗を受ける物体の落下運動</option>
+                <option value="damped-oscillation">ばねの減衰運動</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label>表示を選択:</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="show-true" checked>
+                <label for="show-true" class="legend-true">真の解</label>
+                
+                <input type="checkbox" id="show-euler" checked>
+                <label for="show-euler" class="legend-euler">オイラー法 (1次)</label>
+                
+                <input type="checkbox" id="show-rk2" checked>
+                <label for="show-rk2" class="legend-rk2">ルンゲ・クッタ法 (2次)</label>
+                
+                <input type="checkbox" id="show-rk4" checked>
+                <label for="show-rk4" class="legend-rk4">ルンゲ・クッタ法 (4次)</label>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="step-slider">幅 (h): <span id="h-value">0.5</span></label>
+            <input type="range" id="step-slider" min="0.05" max="1.0" step="0.05" value="0.5">
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="solution-chart"></canvas>
+        <div id="custom-tooltip" class="tooltip" style="display: none;"></div>
+        <button id="reset-zoom-btn">ズームをリセット</button> </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+}
+
+.controls {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.checkbox-group label {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.legend-true { color: #2ecc71; } /* 緑 */
+.legend-euler { color: #e74c3c; } /* 赤 */
+.legend-rk2 { color: #f39c12; } /* オレンジ */
+.legend-rk4 { color: #3498db; } /* 青 */
+
+
+#step-slider {
+    flex-grow: 1;
+}
+
+.chart-container {
+    position: relative; /* ツールチップやボタンの位置決めの基準とする */
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* ★変更: ズームリセットボタンのスタイルを追加 */
+#reset-zoom-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.2s;
+}
+
+#reset-zoom-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* カスタムツールチップのスタイル */
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    pointer-events: none; /* マウスイベントを透過させる */
+    font-size: 12px;
+    white-space: pre; /* 改行とスペースをそのまま表示 */
+    transform: translate(10px, -50%); /* カーソルの少し横に表示 */
+    z-index: 10;
+}
